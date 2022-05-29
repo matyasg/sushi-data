@@ -175,12 +175,12 @@ module.exports = {
 
     async pairs24h({block = undefined, timestamp = undefined, max = undefined} = {}) {
         let timestampNow = timestamp ? timestamp : block ? await blockToTimestamp(block) : (Math.floor(Date.now() / 1000));
-        timestamp24ago = timestampNow - TWENTY_FOUR_HOURS;
-        timestamp48ago = timestamp24ago - TWENTY_FOUR_HOURS;
+        let timestamp24ago = timestampNow - TWENTY_FOUR_HOURS;
+        let timestamp48ago = timestamp24ago - TWENTY_FOUR_HOURS;
 
         block = timestamp ? await timestampToBlock(timestamp) : block;
-        block24ago = await timestampToBlock(timestamp24ago);
-        block48ago = await timestampToBlock(timestamp48ago);
+        let block24ago = await timestampToBlock(timestamp24ago);
+        let block48ago = await timestampToBlock(timestamp48ago);
 
         const results = await module.exports.pairs({block: block, max});
         const results24ago = await module.exports.pairs({block: block24ago, max});
