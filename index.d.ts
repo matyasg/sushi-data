@@ -16,7 +16,7 @@ export as namespace SushiData;
 
 declare namespace SushiData {
 
-    export declare function timeseries({ blocks, timestamps, target }: {
+    export function timeseries({ blocks, timestamps, target }: {
         blocks?: number[];
         timestamps?: number[];
         target: Function;
